@@ -1,19 +1,5 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
-
-const Item = forwardRef(({ index, content, ...props }, ref) => {
-  const [ check, setCheck ] = useState(true);
-  
-  useEffect(() => {
-    ref.current[index] = check;
-  }, [check])
-  
-  return (
-    <div index={index} {...props}>
-      <input type="checkbox" checked={check} onChange={() => setCheck(!check)} />
-      {content}
-    </div>
-  )
-})
+import React, { useEffect, useRef, useState } from 'react';
+import Item from './Item';
 
 const List = ({ data }) => {
   const childrenRef = useRef([]);
